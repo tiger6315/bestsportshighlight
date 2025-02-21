@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <h1 class="title">BESTSPORTSHIGHLIGHT</h1>
-    <div class="widget-container sr-widget-1"></div>
+    <div class="widget-container">
+      <div id="sr-widget"></div>
+    </div>
   </div>
 </template>
 
@@ -9,21 +11,34 @@
 import { onMounted } from 'vue';
 
 onMounted(() => {
-  const script = document.createElement("script");
-  script.src = "https://widgets.sir.sportradar.com/67b84746344f43026b255e94/widgetloader";
-  script.async = true;
-
-  script.onload = () => {
+  if (!document.getElementById('sportradar-script')) {
+    const script = document.createElement("script");
+    script.id = 'sportradar-script';
+    script.src = "https://widgets.sir.sportradar.com/67b84746344f43026b255e94/widgetloader";
+    script.async = true;
+    script.onload = () => {
+      if (window.SIR) {
+        window.SIR('addWidget', '#sr-widget', 'match.scoreboard', {
+          matchId: 52631971,
+          language: 'en',
+          theme: 'default',
+          layout: 'horizontal',
+          logo: 'https://example.com/logo.png' // Example customization
+        });
+      }
+    };
+    document.body.appendChild(script);
+  } else {
     if (window.SIR) {
-      setTimeout(() => {
-        SIR("addWidget", ".sr-widget-1", "match.scoreboard", { matchId: 52631971 });
-      }, 500); // Невелика затримка, щоб переконатися, що SIR ініціалізований
-    } else {
-      console.error("SIR не ініціалізований");
+      window.SIR('addWidget', '#sr-widget', 'match.scoreboard', {
+        matchId: 52631971,
+        language: 'en',
+        theme: 'default',
+        layout: 'horizontal',
+        logo: 'https://example.com/logo.png'
+      });
     }
-  };
-
-  document.body.appendChild(script);
+  }
 });
 </script>
 
