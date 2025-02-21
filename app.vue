@@ -9,15 +9,21 @@
 import { onMounted } from 'vue';
 
 onMounted(() => {
-  (function(a,b,c,d,e,f,g,h,i){
-    a[e]||(i=a[e]=function(){(a[e].q=a[e].q||[]).push(arguments)},i.l=1*new Date,i.o=f,
-    g=b.createElement(c),h=b.getElementsByTagName(c)[0],g.async=1,g.src=d,g.setAttribute("n",e),h.parentNode.insertBefore(g,h)
-  })(window,document,"script", "https://widgets.sir.sportradar.com/67b84746344f43026b255e94/widgetloader", "SIR", {
-      theme: false,
-      language: "en"
-  });
-  
-  SIR("addWidget", ".sr-widget-1", "match.scoreboard", { matchId: 52631971 });
+  const script = document.createElement("script");
+  script.src = "https://widgets.sir.sportradar.com/67b84746344f43026b255e94/widgetloader";
+  script.async = true;
+
+  script.onload = () => {
+    if (window.SIR) {
+      setTimeout(() => {
+        SIR("addWidget", ".sr-widget-1", "match.scoreboard", { matchId: 52631971 });
+      }, 500); // Невелика затримка, щоб переконатися, що SIR ініціалізований
+    } else {
+      console.error("SIR не ініціалізований");
+    }
+  };
+
+  document.body.appendChild(script);
 });
 </script>
 
