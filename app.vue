@@ -3,12 +3,13 @@
     <h1 class="title">BESTSPORTSHIGHLIGHT</h1>
     <div class="widget-container">
       <iframe
-        src="https://widgets.sir.sportradar.com/67b84746344f43026b255e94/match.scoreboard?matchId=52631971"
-        width="600"
-        height="400"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+  src="https://widgets.sir.sportradar.com/live-match-tracker#matches:(matchId:49405439,sportId:1,uniqueTournamentId:634)"
+  width="800"
+  height="600"
+  frameborder="0"
+  allowfullscreen
+></iframe>
+
     </div>
   </div>
 </template>
