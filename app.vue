@@ -3,11 +3,13 @@
     <h1 class="title">BESTSPORTSHIGHLIGHT</h1>
     <div class="widget-container">
       <iframe
-  src="https://widgets.sir.sportradar.com/live-match-tracker#matches:(matchId:49405439,sportId:1,uniqueTournamentId:634)"
-  width="800"
-  height="600"
-  frameborder="0"
-  allowfullscreen
+<script type="text/javascript">
+    (function(a,b,c,d,e,f,g,h,i){a[e]||(i=a[e]=function(){(a[e].q=a[e].q||[]).push(arguments)},i.l=1*new Date,i.o=f,
+    g=b.createElement(c),h=b.getElementsByTagName(c)[0],g.async=1,g.src=d,g.setAttribute("n",e),h.parentNode.insertBefore(g,h)
+    )})(window,document,"script","https://widgets.sir.sportradar.com/67b84746344f43026b255e94/widgetloader","SIR", {
+        language: 'en' // SIR global options
+    });
+</script>
 ></iframe>
 
     </div>
